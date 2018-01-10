@@ -54,7 +54,7 @@ class DB:
             table_data[key] = "'"+str(table_data[key])+"'"
         key = ','.join(table_data.keys())
         value = ','.join(table_data.values())
-        real_sql = 'INSERT INTO'+table_name+'('+key+')VALUES('+value+")"
+        real_sql = 'INSERT INTO '+table_name+'('+key+')VALUES('+value+")"
         print(real_sql)
         with self.conn.cursor() as cursors:
             cursors.execute(real_sql)
@@ -67,11 +67,11 @@ class DB:
 if __name__ == '__main__':
     db = DB()
     table_name = "sign_event"
-    data = {'id': 1, 'name': '红米', '`limit`': 2000, 'status': 1, 'address': '北京会展中心',
-            'start_time': '2018-02-20 00:25:42'}
+    data = {'id': 2, 'name': '红米', '`limit`': 2000, 'status': 1, 'address': '北京会展中心',
+            'start_time': '2018-02-20 00:25:42','cread_time':'2018-02-20 00:25:42'}
     table_name2 = "sign_guest"
-    data2 = {'realname': 'alen', 'phone': 12312341234, 'email': 'alen@mail.com', 'sign': 0, 'event_id': 1}
-
-    db.clear(table_name)
-    db.inster(table_name,data)
-    # db.close()
+    data2 = {'id' : 1,'realneme': 'alen', 'phone': 12312341234, 'email': 'alen@mail.com', 'sign': 0, 'event_id': 1,
+             'cread_time':'2018-02-20 00:25:42'}
+    db.clear(table_name2)
+    db.inster(table_name2,data2)
+    db.close()
