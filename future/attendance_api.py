@@ -1,6 +1,6 @@
 import requests
 
-url = 'https://www.ketangpai.com/SummaryApi/attence?courseid=MDAwMDAwMDAwMLOGvd6H36-w'
+url = 'https://www.ketangpai.com/SummaryApi/attence'
 params= {'courseid':'MDAwMDAwMDAwMLOGvd6H36-w'}
 cookie= {'ketangpai_home_remember':'think%3A%7B%22username%22%3A%22MDAwMDAwMDAwMLOGy96Gqatphc6KlbLPn54%22%'
                                    '2C%22expire%22%3A%22MDAwMDAwMDAwMLOGud2GqclrhM563LKmdZ4%22%2C%22token%22%3A%22MDAwM'
