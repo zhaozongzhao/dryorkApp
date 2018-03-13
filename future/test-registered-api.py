@@ -9,7 +9,7 @@ class GetRegisteredTest(unittest.TestCase):
     def test_registered_success(self):
         '''功能验证'''
         params = {'mobilephone':'18301565540','pwd':'123456','regname':''}
-        r = requests.get(self.url,params=params)
+        r = requests.get('http://119.23.241.154:8080/futureloan/mvc/api/member/register',params=params)
         print(r.text)
 
     def test_mobilephone_null(self):
