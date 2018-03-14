@@ -1,5 +1,5 @@
 from openpyxl import load_workbook
-
+import os
 class DoExcel:
 
     def __init__(self,excelpath):
@@ -19,6 +19,7 @@ class DoExcel:
         return all_case_datas
 
 if __name__ == '__main__':
-    path = 'F:\gitstorehouse\dryorkApp\python3_api_framework\TestDatas'+'/api_qcd.xlsx'
 
-    DoExcel.get_caseData_all(path)
+  de = DoExcel(os.getcwd().replace('TestCase','TestDatas')+'/api_qcd.xlsx')
+  all_case_datas = de.get_caseData_all()
+  print(all_case_datas)
