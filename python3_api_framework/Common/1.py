@@ -7,6 +7,15 @@ class DoExcel:
         self.sh_case_data  = wb["case_data"]
         self.init_data = wb["init_data"]
 
+
+    def sl(self):
+
+         all_init_dada = {}
+         print(type(self.init_data))
+         for index in range(2, self.init_data.max_row + 1):
+             print(index)
+             print(type(index))
+
     def get_init_data(self):
         all_init_dada = {}
         for index in range(2, self.init_data.max_row + 1):
@@ -19,7 +28,7 @@ class DoExcel:
     def get_caseData_all(self):
         all_case_datas = []
         for index in range(2, self.sh_case_data.max_row + 1):
-            print('分行读取数据', index)
+            print('分行读取数据',index)
             case_data = {}
             case_data['id'] = self.sh_case_data.cell(row=index, column=1).value
             case_data['method'] = self.sh_case_data.cell(row=index, column=5).value
@@ -28,7 +37,7 @@ class DoExcel:
             init_data = self.get_init_data()
             print('初始化数据', init_data)
             for key, value in init_data.items():
-                print(key, value)
+                print(key,value)
                 if temp_cese_data.find(key) != -1:
                     temp_cese_data = temp_cese_data.replace(key, value)
             case_data['request_data'] = temp_cese_data
@@ -37,8 +46,6 @@ class DoExcel:
         return all_case_datas
 
 
-if __name__ == '__main__':
-
-  de = DoExcel(os.getcwd().replace('TestCase','TestDatas')+'/api_qcd.xlsx')
-  all_case_datas = de.get_caseData_all()
-  print(all_case_datas)
+de = DoExcel(os.getcwd().replace('Common','TestDatas')+'/1.xlsx')
+h = de.get_caseData_all()
+print(h)
