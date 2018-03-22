@@ -2,12 +2,13 @@ from openpyxl import load_workbook
 import os
 class DoExcel:
 
-    def __init__(self,excelpath):
+    def __init__(self,excelpath,log):
         #初始化数据，打开excel表格
         self.wb = load_workbook(excelpath)
         #打开相关sheet页
         self.sh_case_data  = self.wb["case_data"]
         self.init_data =self.wb["init_data"]
+        self.log = log
 
     def get_init_data(self):
         #查询配置数据用来替换case数据中的标识
@@ -18,6 +19,7 @@ class DoExcel:
         #对配置数据进行整理
         all_init_dada['$phone'] = str(int(all_init_dada['$init_phone']) + 1)
         all_init_dada['$phone1'] = str(int(all_init_dada['$init_phone']) + 2)
+        self.log.info('配置数据'+all_init_dada)
         return all_init_dada
 
     def get_caseData_all(self):
@@ -25,14 +27,15 @@ class DoExcel:
         all_case_datas = []
         for index in range(2, self.sh_case_data.max_row + 1):
             #读取数据从第二行开始到最大行数加1
-            print('分行读取数据', index)
+            self.log.info('分行读取数据'+index)
             case_data = {}
             case_data['id'] = self.sh_case_data.cell(row=index, column=1).value
+            case_data['api_name'] = self.sh_case_data.cell(row=index, column=4).value
             case_data['method'] = self.sh_case_data.cell(row=index, column=5).value
             case_data['url'] = self.sh_case_data.cell(row=index, column=6).value
             temp_cese_data = self.sh_case_data.cell(row=index, column=7).value
             init_data = self.get_init_data()
-            print('初始化数据', init_data)
+            self.log.info('初始化数据'+init_data)
             #判断读取的测试数据中是否存在标识，存在替换
             for key, value in init_data.items():
                 print(key, value)

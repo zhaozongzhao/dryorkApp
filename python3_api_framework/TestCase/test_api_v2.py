@@ -5,10 +5,11 @@ from Common.myrequest import myRquest
 import os
 import ddt
 import unittest
+from Common import Log
 #传入测试地址返回测试数据
 path =os.path.split(os.path.realpath(__file__))[0].replace('TestCase', 'TestDatas') + '/api_qcd.xlsx'
 print(path)
-de = DoExcel(path)
+de = DoExcel(path,log=Log)
 all_case_datas = de.get_caseData_all()
 
 
