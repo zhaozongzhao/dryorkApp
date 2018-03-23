@@ -8,8 +8,6 @@ log_dir = base_dir + "Loger/"
 #测试报告目录
 report_dir = base_dir + "HtmlReport/"
 
-#截图目录
-image_dir = base_dir + "Images/"
 
 #测试用例目录
-
+casedata_dir = base_dir+'TestDatas/'
