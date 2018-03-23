@@ -8,7 +8,7 @@ class GetTopUpTest(unittest.TestCase):
 
     def test_topup_success(self):
         '''功能验证'''
-        data = {'mobilephone':'18301565568','amount':'100'}
+        data = {'mobilephone':'183015656241','amount':'0'}
         r = requests.post(self.url,data=data)
         print(r.text)
 
