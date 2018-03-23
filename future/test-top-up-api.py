@@ -6,6 +6,8 @@ class GetTopUpTest(unittest.TestCase):
     def setUp(self):
         self.url = 'http://119.23.241.154:8080/futureloan/mvc/api/member/recharge'
 
+    def tearDown(self):
+
     def test_topup_success(self):
         '''功能验证'''
         data = {'mobilephone':'183015656241','amount':'0'}
