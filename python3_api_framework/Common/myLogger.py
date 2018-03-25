@@ -8,11 +8,13 @@ class MyLoggger:
         self.log_name=log_name
         self.file_name=file_name
 
+
     def logger(self,level,msg):
         #日志收集器
-        #实例化对象
-        my_log=logging.getLogger(self.log_name)
+        # 实例化对象
+        my_log = logging.getLogger(self.log_name)
         my_log.setLevel('DEBUG')
+
 
         formatter = logging.Formatter('%(asctime)s-%(levelname)s-%(filename)s-%(name)s-日志信息:%(message)s')
 

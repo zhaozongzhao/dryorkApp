@@ -5,8 +5,7 @@ from Common.myrequest import myRquest
 import ddt,time,os,unittest
 from Common.myLogger import MyLoggger
 from Common.dir_config import *
-# +'
-logger = MyLoggger("zzz",log_dir+time.strftime('%Y-%m-%d',time.localtime(time.time()))+'.log')
+logger = MyLoggger("zzz",log_dir+time.strftime('%Y-%m-%d %H:%M',time.localtime(time.time()))+'.log')
 
 #传入测试地址返回测试数据
 path = casedata_dir +'/api_qcd.xlsx'
