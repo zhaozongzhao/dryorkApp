@@ -47,6 +47,8 @@ class DoExcel:
             case_data['request_data'] = temp_cese_data
             case_data['response_data'] = self.sh_case_data.cell(row=index, column=8).value
             case_data['is_all'] = self.sh_case_data.cell(row=index, column=9).value
+            if self.sh_case_data.cell(row=index, column=10).value is not None:
+                case_data['related_exp']=self.sh_case_data.cell(row=index, column=10)
             all_case_datas.append(case_data)
             self.log.info('测试数据'+str(all_case_datas))
         return all_case_datas
