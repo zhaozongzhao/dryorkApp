@@ -27,7 +27,6 @@ class DoExcel:
         all_case_datas = []
         for index in range(2, self.sh_case_data.max_row + 1):
             #读取数据从第二行开始到最大行数加1
-            self.log.info('分行读取数据'+str(index))
             case_data = {}
             case_data['id'] = self.sh_case_data.cell(row=index, column=1).value
             case_data['api_name'] = self.sh_case_data.cell(row=index, column=4).value
@@ -35,7 +34,6 @@ class DoExcel:
             case_data['url'] = self.sh_case_data.cell(row=index, column=6).value
             temp_cese_data = self.sh_case_data.cell(row=index, column=7).value
             init_data = self.get_init_data()
-            self.log.info('初始化数据'+str(init_data))
             #判断读取的测试数据中是否存在标识，存在替换
             if temp_cese_data is not None:
                for key, value in init_data.items():
@@ -48,9 +46,8 @@ class DoExcel:
             case_data['response_data'] = self.sh_case_data.cell(row=index, column=8).value
             case_data['is_all'] = self.sh_case_data.cell(row=index, column=9).value
             if self.sh_case_data.cell(row=index, column=10).value is not None:
-                case_data['related_exp']=self.sh_case_data.cell(row=index, column=10)
+                case_data['related_exp']=self.sh_case_data.cell(row=index, column=10).value
             all_case_datas.append(case_data)
-            self.log.info('测试数据'+str(all_case_datas))
         return all_case_datas
 
     def Modify_init_data(self):
